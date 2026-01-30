@@ -2,7 +2,7 @@
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.getElementById("navLinks");
   const navLinkItems = navLinks ? navLinks.querySelectorAll(".nav-link") : [];
-
+  const copyRight = document.getElementById("copy-id");
   // Hamburger toggle
   if (hamburger && navLinks) {
     hamburger.addEventListener("click", () => {
@@ -84,4 +84,5 @@
 
   const cards = document.querySelectorAll(".card, .projects-card, .testimonial-card, .contact-card");
   animateOnScroll(cards);
+  copyRight.textContent = new Date().getFullYear();
 })();
