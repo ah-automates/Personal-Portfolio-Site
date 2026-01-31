@@ -1,7 +1,7 @@
 (function () {
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.getElementById("navLinks");
-  const navLinkItems = navLinks ? navLinks.querySelectorAll(".nav-link") : [];
+  //const navLinkItems = navLinks ? navLinks.querySelectorAll(".nav-link") : [];
   const copyRight = document.getElementById("copy-id");
   // Hamburger toggle
   if (hamburger && navLinks) {
@@ -10,7 +10,7 @@
       navLinks.classList.toggle("active", isOpen);
     });
   }
-    // Active nav link indicator
+  // Active nav link indicator
 const navLinkItems = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('.section');
 
@@ -49,7 +49,6 @@ navLinkItems.forEach(link => {
 
 // Set initial active link on page load
 setActiveLink();
-  
   navLinkItems.forEach((link) => {
     link.addEventListener("click", () => {
       if (window.innerWidth <= 768 && navLinks && hamburger) {
