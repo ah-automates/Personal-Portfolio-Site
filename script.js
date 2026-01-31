@@ -10,7 +10,46 @@
       navLinks.classList.toggle("active", isOpen);
     });
   }
+    // Active nav link indicator
+const navLinkItems = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('.section');
 
+// Function to set active link
+// NEW - Better scroll detection
+function setActiveLink() {
+  let current = '';
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    // Check if we're in the middle of this section
+    if (scrollY >= (sectionTop - 150) && scrollY < (sectionTop + sectionHeight - 150)) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinkItems.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
+}
+
+// Set active on scroll
+window.addEventListener('scroll', setActiveLink);
+
+// Set active on click
+navLinkItems.forEach(link => {
+  link.addEventListener('click', function() {
+    navLinkItems.forEach(l => l.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// Set initial active link on page load
+setActiveLink();
+  
   navLinkItems.forEach((link) => {
     link.addEventListener("click", () => {
       if (window.innerWidth <= 768 && navLinks && hamburger) {
